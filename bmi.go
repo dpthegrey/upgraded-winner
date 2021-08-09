@@ -1,20 +1,19 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/dpthegrey/upgraded-winner/info"
 )
 
 func main() {
-	// Output information
 	info.PrintWelcome()
 
 	weight, height := getUserMetrics()
 
-	// Calculate BMI (weight / height * height)
-	bmi := weight / (height * height)
+	bmi := calculateBMI(weight, height)
 
-	// Output the calculated BMI
-	fmt.Printf("Your BMI is: %.2f", bmi)
+	printBMI(bmi)
+}
+
+func calculateBMI(weight, height float64) float64 {
+	return weight / (height * height)
 }
