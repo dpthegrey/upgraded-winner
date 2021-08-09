@@ -10,15 +10,20 @@ import (
 
 var reader = bufio.NewReader(os.Stdin)
 
+const mainTitle = "BMI Calculator"
+const separator = "----------------------------------------"
+const weightPrompt = "Please enter your weight in (kg): "
+const heightPrompt = "Please enter your height in (m): "
+
 func main() {
 	// Output information
-	fmt.Println("BMI Calculator")
-	fmt.Println("--------------------")
+	fmt.Println(mainTitle)
+	fmt.Println(separator)
 	// Prompt for user input (weight + height)
-	fmt.Print("Please enter your weight in (kg): ")
+	fmt.Print(weightPrompt)
 	weightInput, _ := reader.ReadString('\n')
 
-	fmt.Print("Please enter your height in (m): ")
+	fmt.Print(heightPrompt)
 	heightInput, _ := reader.ReadString('\n')
 
 	// Save that user input in variables
@@ -28,9 +33,12 @@ func main() {
 	fmt.Print(weightInput)
 	fmt.Print(heightInput)
 
-	weight, err := strconv.ParseFloat(weightInput, 64)
-	height, err := strconv.ParseFloat(heightInput, 64)
+	weight, _ := strconv.ParseFloat(weightInput, 64)
+	height, _ := strconv.ParseFloat(heightInput, 64)
 
 	// Calculate BMI (weight / height * height)
+	bmi := weight / (height * height)
+
 	// Output the calculated BMI
+	fmt.Printf("Your BMI is: %.2f", bmi)
 }
