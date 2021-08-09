@@ -10,8 +10,7 @@ import (
 
 func main() {
 	// Output information
-	fmt.Println(info.MainTitle)
-	fmt.Println(info.Separator)
+	info.PrintWelcome()
 	// Prompt for user input (weight + height)
 	fmt.Print(info.WeightPrompt)
 	weightInput, _ := reader.ReadString('\n')
